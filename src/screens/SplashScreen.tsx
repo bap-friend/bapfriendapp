@@ -1,10 +1,13 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {useTheme} from '../hooks/useTheme';
 
 const SplashScreen = () => {
+  const {colors} = useTheme();
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Splash Screen</Text>
+    <View style={[styles.container, {backgroundColor: colors.background}]}>
+      <Text style={[styles.text, {color: colors.text}]}>밥친구</Text>
     </View>
   );
 };
@@ -12,7 +15,6 @@ const SplashScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
     justifyContent: 'center',
     alignItems: 'center',
   },

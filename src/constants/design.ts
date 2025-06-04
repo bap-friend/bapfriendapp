@@ -1,14 +1,40 @@
 export const COLORS = {
-  // Base Colors
+  // Base Colors(레거시)
   primary: '#FFD700', // 메인 노란색
   background: '#FFFFFF', // 기본 배경색
   surface: '#F5F5F5', // 카드나 섹션 배경
   border: '#E0E0E0', // 경계선
-  // Text Colors
+  selected: '#111111',
+  unselected: '#AAAAAA',
+
+  // 라이트 모드 색상들
+  light: {
+    theme: 'light',
+    background: '#F5F5F5', // 배경색
+    surface: '#FFFFFF', // 표면 색상 (카드, 모달 등)
+    text: '#111111', // 기본 텍스트 색상
+    border: '#E0E0E0', // 경계선
+    selected: '#111111', // 선택된 항목 색상
+    unselected: '#999999', // 선택되지 않은 항목 색상
+  },
+
+  // 다크 모드 색상들
+  dark: {
+    theme: 'dark',
+    background: '#222222', // 약간 회색이 섞인 다크 배경
+    surface: '#333333', // 카드, 모달 등 표면 색상
+    text: '#EEEEEE', // 기본 텍스트 색상
+    border: '#3A3F47', // 경계선
+    selected: '#EEEEEE', // 선택된 항목 색상 
+    unselected: '#999999', // 선택되지 않은 항목 색상
+  },
+
+
+  // Text Colors (레거시)
   text: {
     primary: '#1A1A1A',
     secondary: '#757575',
-    disabled: '#BDBDBD',
+    disabled: '#ADADAD',
   },
 
   // Status Colors
@@ -18,13 +44,6 @@ export const COLORS = {
     warning: '#FFA000',
   },
 
-  // Dark Mode Colors
-  dark: {
-    background: '#121212',
-    surface: '#1E1E1E',
-    text: '#FFFFFF',
-    border: '#333333',
-  },
 
   // Opacity Variations
   opacity: {
@@ -36,73 +55,9 @@ export const COLORS = {
   },
 } as const;
 
-export const SPACING = {
-  xs: 4,
-  sm: 8,
-  md: 16,
-  lg: 24,
-  xl: 32,
-  xxl: 40,
-} as const;
-
 export const RADIUS = {
-  none: 0,
   sm: 4,
   md: 8,
   lg: 16,
-  round: 999,
-} as const;
-
-export const TYPOGRAPHY = {
-  sizes: {
-    xs: 12,
-    sm: 14,
-    md: 16,
-    lg: 18,
-    xl: 24,
-    xxl: 32,
-  },
-  weights: {
-    regular: '400',
-    medium: '500',
-    bold: '700',
-  },
-  lineHeight: {
-    tight: 1.2,
-    normal: 1.5,
-    loose: 1.8,
-  }
-} as const;
-
-export const SHADOWS = {
-  sm: {
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.18,
-    shadowRadius: 1.0,
-    elevation: 1,
-  },
-  md: {
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 3,
-  },
-  lg: {
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.30,
-    shadowRadius: 4.65,
-    elevation: 5,
-  },
+  xl: 24,
 } as const;
