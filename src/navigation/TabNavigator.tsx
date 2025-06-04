@@ -44,7 +44,7 @@ export const TabNavigator = () => {
         tabBarStyle: {
           height: 50 + bottomPadding,
           paddingBottom: bottomPadding,
-          backgroundColor: colors.surface,
+          backgroundColor: colors.lv1,
           borderTopWidth: 0,  // border 제거
           ...(theme === 'light' ? {
             shadowColor: colors.text,

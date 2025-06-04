@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 import {useTheme} from '../../hooks/useTheme';
@@ -23,60 +24,66 @@ export const SecondaryHeader = ({
 }: SecondaryHeaderProps) => {
   const navigation = useNavigation();
   const {colors} = useTheme();
+  const insets = useSafeAreaInsets();
 
   return (
     <View style={[
-      styles.header,
+      styles.headerContainer,
       {
-        backgroundColor: colors.surface,
-        borderBottomColor: colors.border,
-      }
+        backgroundColor: colors.lv1,
+        paddingTop: insets.top,
+      },
     ]}>
-      <TouchableOpacity 
-        style={styles.backButton}
-        onPress={() => navigation.goBack()}
-      >
-        <Icon name="chevron-back" size={24} color={colors.text} />
-      </TouchableOpacity>
-      
-      <Text style={[styles.title, {color: colors.text}]}>{title}</Text>
-      
-      <View style={styles.right}>
-        {rightButton1 && (
-          <TouchableOpacity
-            style={styles.iconButton}
-            onPress={rightButton1.onPress}
-          >
-            <Icon
-              name={rightButton1.iconName}
-              size={24}
-              color={colors.text}
-            />
-          </TouchableOpacity>
-        )}
-        {rightButton2 && (
-          <TouchableOpacity
-            style={styles.iconButton}
-            onPress={rightButton2.onPress}
-          >
-            <Icon
-              name={rightButton2.iconName}
-              size={24}
-              color={colors.text}
-            />
-          </TouchableOpacity>
-        )}
+      <View style={[
+        styles.header,
+      ]}>
+        <TouchableOpacity 
+          style={styles.backButton}
+          onPress={() => navigation.goBack()}
+        >
+          <Icon name="chevron-back" size={24} color={colors.text} />
+        </TouchableOpacity>
+        
+        <Text style={[styles.title, {color: colors.text}]}>{title}</Text>
+        
+        <View style={styles.right}>
+          {rightButton1 && (
+            <TouchableOpacity
+              style={styles.iconButton}
+              onPress={rightButton1.onPress}
+            >
+              <Icon
+                name={rightButton1.iconName}
+                size={24}
+                color={colors.text}
+              />
+            </TouchableOpacity>
+          )}
+          {rightButton2 && (
+            <TouchableOpacity
+              style={styles.iconButton}
+              onPress={rightButton2.onPress}
+            >
+              <Icon
+                name={rightButton2.iconName}
+                size={24}
+                color={colors.text}
+              />
+            </TouchableOpacity>
+          )}
+        </View>
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  headerContainer: {
+  },
   header: {
     height: 56,
     flexDirection: 'row',
     alignItems: 'center',
-    borderBottomWidth: 1,
   },
   backButton: {
     width: 56,

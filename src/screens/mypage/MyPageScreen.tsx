@@ -8,6 +8,7 @@ import {useTheme} from '../../hooks/useTheme';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppNavigation} from '../../hooks/useAppNavigation';
 import {TwoButtonCard} from '../../components/mypage/TwoButtonCard';
+import {ButtonListCard} from '../../components/mypage/ButtonListCard';
 
 const MyPageScreen = () => {
   const {colors} = useTheme();
@@ -16,6 +17,23 @@ const MyPageScreen = () => {
   const handleProfilePress = () => {
     navigation.navigate('ProfileEdit');
   };
+
+  const handleMyMeetingPress = () => {
+    navigation.navigate('MyMeeting');
+  };
+
+  const handleMeetingHistoryPress = () => {
+    navigation.navigate('MeetingHistory');
+  };
+
+  const handlePendingMeetingPress = () => {
+    navigation.navigate('PendingMeeting');
+  };
+  
+  const handleLikeMeetingPress = () => {
+    navigation.navigate('LikeMeeting');
+  };
+
 
   return (
     <PrimaryScreen header={<MyPageHeader />}>
@@ -37,7 +55,7 @@ const MyPageScreen = () => {
             leftButton={{
               title: '관심목록',
               iconName: 'heart-outline',
-              onPress: () => console.log('관심목록'),
+              onPress: handleLikeMeetingPress,
             }}
             rightButton={{
               title: '이벤트',
@@ -46,85 +64,57 @@ const MyPageScreen = () => {
             }}
           />
 
-          <RoundedCard>
-            <Text style={[styles.cardTitle, {color: colors.text}]}>모임</Text>
-            <TouchableOpacity style={styles.listItem}>
-              <View style={styles.listItemLeft}>
-                <Icon name="create-outline" size={20} color={colors.unselected} />
-                <Text style={[styles.listItemText, {color: colors.text}]}>
-                  내가 만든 모임
-                </Text>
-              </View>
-              <Icon name="chevron-forward" size={20} color={colors.unselected} />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.listItem}>
-              <View style={styles.listItemLeft}>
-                <Icon name="people-outline" size={20} color={colors.unselected} />
-                <Text style={[styles.listItemText, {color: colors.text}]}>
-                  참여내역
-                </Text>
-              </View>
-              <Icon name="chevron-forward" size={20} color={colors.unselected} />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.listItem}>
-              <View style={styles.listItemLeft}>
-                <Icon name="time-outline" size={20} color={colors.unselected} />
-                <Text style={[styles.listItemText, {color: colors.text}]}>
-                  승인 대기중인 모임
-                </Text>
-              </View>
-              <Icon name="chevron-forward" size={20} color={colors.unselected} />
-            </TouchableOpacity>
-          </RoundedCard>
+          <ButtonListCard
+            title="모임"
+            items={[
+              {
+                title: '내가 만든 모임',
+                iconName: 'create-outline',
+                onPress: handleMyMeetingPress,
+              },
+              {
+                title: '참여내역',
+                iconName: 'people-outline',
+                onPress: handleMeetingHistoryPress,
+              },
+              {
+                title: '승인 대기중인 모임',
+                iconName: 'time-outline',
+                onPress: handlePendingMeetingPress,
+              },
+            ]}
+          />
 
-          <RoundedCard>
-            <Text style={[styles.cardTitle, {color: colors.text}]}>고객지원</Text>
-            <TouchableOpacity style={styles.listItem}>
-              <View style={styles.listItemLeft}>
-                <Icon name="megaphone-outline" size={20} color={colors.unselected} />
-                <Text style={[styles.listItemText, {color: colors.text}]}>
-                  공지사항
-                </Text>
-              </View>
-              <Icon name="chevron-forward" size={20} color={colors.unselected} />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.listItem}>
-              <View style={styles.listItemLeft}>
-                <Icon name="help-circle-outline" size={20} color={colors.unselected} />
-                <Text style={[styles.listItemText, {color: colors.text}]}>
-                  고객센터
-                </Text>
-              </View>
-              <Icon name="chevron-forward" size={20} color={colors.unselected} />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.listItem}>
-              <View style={styles.listItemLeft}>
-                <Icon name="business-outline" size={20} color={colors.unselected} />
-                <Text style={[styles.listItemText, {color: colors.text}]}>
-                  광고 및 제휴매장 문의
-                </Text>
-              </View>
-              <Icon name="chevron-forward" size={20} color={colors.unselected} />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.listItem}>
-              <View style={styles.listItemLeft}>
-                <Icon name="chatbox-outline" size={20} color={colors.unselected} />
-                <Text style={[styles.listItemText, {color: colors.text}]}>
-                  의견 남기기
-                </Text>
-              </View>
-              <Icon name="chevron-forward" size={20} color={colors.unselected} />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.listItem}>
-              <View style={styles.listItemLeft}>
-                <Icon name="document-text-outline" size={20} color={colors.unselected} />
-                <Text style={[styles.listItemText, {color: colors.text}]}>
-                  약관 및 정책
-                </Text>
-              </View>
-              <Icon name="chevron-forward" size={20} color={colors.unselected} />
-            </TouchableOpacity>
-          </RoundedCard>
+          <ButtonListCard
+            title="고객지원"
+            items={[
+              {
+                title: '공지사항',
+                iconName: 'megaphone-outline',
+                onPress: () => console.log('공지사항'),
+              },
+              {
+                title: '고객센터',
+                iconName: 'help-circle-outline',
+                onPress: () => console.log('고객센터'),
+              },
+              {
+                title: '광고 및 제휴매장 문의',
+                iconName: 'business-outline',
+                onPress: () => console.log('광고 및 제휴'),
+              },
+              {
+                title: '의견 남기기',
+                iconName: 'chatbox-outline',
+                onPress: () => console.log('의견 남기기'),
+              },
+              {
+                title: '약관 및 정책',
+                iconName: 'document-text-outline',
+                onPress: () => console.log('약관 및 정책'),
+              },
+            ]}
+          />
         </View>
       </ScrollView>
     </PrimaryScreen>
@@ -134,15 +124,6 @@ const MyPageScreen = () => {
 const styles = StyleSheet.create({
   contentContainer: {
     padding: 16,
-  },
-  cardTitle: {
-    fontSize: 16,
-    fontWeight: '600',
-    marginBottom: 8,
-  },
-  cardContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
   },
   profileContainer: {
     flexDirection: 'row',
@@ -155,40 +136,6 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 18,
     fontWeight: '600',
-  },
-  email: {
-    fontSize: 14,
-    marginTop: 4,
-  },
-  statItem: {
-    alignItems: 'center',
-    marginRight: 24,
-  },
-  statNumber: {
-    fontSize: 20,
-    fontWeight: '600',
-  },
-  statLabel: {
-    fontSize: 14,
-    marginTop: 4,
-  },
-  infoText: {
-    fontSize: 14,
-    color: 'gray',
-  },
-  listItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: 12,
-  },
-  listItemLeft: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  listItemText: {
-    fontSize: 15,
-    marginLeft: 12,
   },
 });
 

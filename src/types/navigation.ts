@@ -5,7 +5,13 @@ export type RootStackParamList = {
   Notifications: undefined;
   Splash: undefined;
   CreateMeeting: undefined;
+  ReadMeeting: undefined;
+  MyMeeting: undefined;
+  MeetingHistory: undefined;
+  PendingMeeting: undefined;
+  LikeMeeting: undefined;
   ProfileEdit: undefined;
+  ChatRoom: undefined;
 };
 
 declare global {

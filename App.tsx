@@ -16,7 +16,14 @@ import {
   createStackNavigator,
   TransitionSpecs,
 } from '@react-navigation/stack';
+
+import ReadMeetingScreen from './src/screens/meeting/ReadMeetingScreen';
 import ProfileEditScreen from './src/screens/mypage/ProfileEditScreen';
+import ChatRoomScreen from './src/screens/chat/ChatRoomScreen';
+import MyMeetingScreen from './src/screens/meeting/MyMeetingScreen';
+import MeetingHistoryScreen from './src/screens/meeting/MeetingHistoryScreen';
+import PendingMeetingScreen from './src/screens/meeting/PendingMeetingScreen';
+import LikeMeetingScreen from './src/screens/meeting/LikeMeetingScreen';
 
 
 const Stack = createStackNavigator();
@@ -68,7 +75,7 @@ function App(): React.JSX.Element {
               <Stack.Screen name="Settings" component={SettingsScreen} />
               <Stack.Screen name="Notifications" component={NotificationScreen} />
               <Stack.Screen name="Search" component={SearchScreen} />
-              <Stack.Screen name="CreateMeeting" component={CreateMeetingScreen} 
+              <Stack.Screen name="CreateMeeting" component={CreateMeetingScreen}
                   options={{
                   gestureEnabled: true,
                   gestureDirection: 'vertical', // 아래에서 위로
@@ -92,7 +99,13 @@ function App(): React.JSX.Element {
                   },
                 }}
               />
+              <Stack.Screen name="ReadMeeting" component={ReadMeetingScreen}/>
+              <Stack.Screen name="MyMeeting" component={MyMeetingScreen} />
+              <Stack.Screen name="MeetingHistory" component={MeetingHistoryScreen} />
+              <Stack.Screen name="PendingMeeting" component={PendingMeetingScreen} />
+              <Stack.Screen name="LikeMeeting" component={LikeMeetingScreen} />
               <Stack.Screen name="ProfileEdit" component={ProfileEditScreen} />
+              <Stack.Screen name="ChatRoom" component={ChatRoomScreen} />
             </>
           )}
         </Stack.Navigator>

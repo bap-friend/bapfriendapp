@@ -2,11 +2,11 @@ import React from 'react';
 import {SecondaryHeader} from '../common/SecondaryHeader';
 
 
-export const SettingsHeader = () => {
+export const MeetingHistoryHeader = () => {
 
   return (
-    <SecondaryHeader
-      title="설정"
+    <SecondaryHeader 
+      title="참여 내역"
     />
   );
 };

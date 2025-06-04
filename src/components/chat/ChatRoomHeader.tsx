@@ -2,11 +2,12 @@ import React from 'react';
 import {SecondaryHeader} from '../common/SecondaryHeader';
 
 
-export const SettingsHeader = () => {
+export const ChatRoomHeader = () => {
+
 
   return (
-    <SecondaryHeader
-      title="설정"
+    <SecondaryHeader 
+      title="채팅방"
     />
   );
 };

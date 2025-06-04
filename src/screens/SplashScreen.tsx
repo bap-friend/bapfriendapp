@@ -6,7 +6,7 @@ const SplashScreen = () => {
   const {colors} = useTheme();
 
   return (
-    <View style={[styles.container, {backgroundColor: colors.background}]}>
+    <View style={[styles.container, {backgroundColor: colors.lv0}]}>
       <Text style={[styles.text, {color: colors.text}]}>밥친구</Text>
     </View>
   );

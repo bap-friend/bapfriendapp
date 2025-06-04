@@ -18,12 +18,12 @@ export const PrimaryScreen = ({
 
   return (
     <SafeAreaView 
-      style={[styles.safeArea, {backgroundColor: colors.background}]} 
+      style={[styles.safeArea, {backgroundColor: colors.lv0}]}
       edges={['top']}
     >
       <View style={styles.container}>
         {header}
-        <View style={[styles.content, {backgroundColor: colors.background}]}>
+        <View style={[styles.content, {backgroundColor: colors.lv0}]}>
           {children}
         </View>
         {floatingButton}

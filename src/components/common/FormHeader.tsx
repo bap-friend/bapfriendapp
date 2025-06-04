@@ -38,7 +38,7 @@ export const FormHeader = ({title, rightButton1}: FormHeaderProps) => {
       style={[
         styles.header,
         {
-          backgroundColor: colors.background,
+          backgroundColor: colors.lv0,
           borderBottomColor: colors.border,
         },
       ]}>

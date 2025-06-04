@@ -14,7 +14,7 @@ export const RoundedCard = ({children, style}: RoundedCardProps) => {
   return (
     <View style={[
       styles.card,
-      {backgroundColor: colors.surface},
+      {backgroundColor: colors.lv1},
       style
     ]}>
       {children}

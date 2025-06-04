@@ -23,7 +23,7 @@ export const PrimaryHeader = ({
   const {colors} = useTheme();
 
   return (
-    <View style={[styles.header, {backgroundColor: colors.background}]}>
+    <View style={[styles.header, {backgroundColor: colors.lv0}]}>
       <Text style={[styles.title, {color: colors.text}]}>{title}</Text>
       <View style={styles.right}>
         {rightButton1 && (
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 20,
+    paddingHorizontal: 16,
   },
   title: {
     flex: 1,
